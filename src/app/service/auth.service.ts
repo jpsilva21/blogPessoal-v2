@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { Usuario } from '../model/Usuario';
@@ -14,6 +15,7 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
+
   entrar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin> {
     return this.http.post<UsuarioLogin>('http://localhost:8080/usuarios/logar', usuarioLogin)
 
@@ -24,6 +26,10 @@ export class AuthService {
 
   }
 
+  getByIdUsuario(id: number): Observable<Usuario> {
+    return this.http.get<Usuario>(`http://localhost:8080/usuarios/${id}`)
+  }
+
   logado() {
     let ok: boolean = false
 
@@ -31,5 +37,15 @@ export class AuthService {
       ok = true
     }
     return ok
+  }
+ 
+  token = {
+    headers: new HttpHeaders().set('Authorization', environment.token)
+  }
+
+  refreshToken() {
+    this.token = {
+      headers: new HttpHeaders().set('Authorization', environment.token)
+    }
   }
 }
