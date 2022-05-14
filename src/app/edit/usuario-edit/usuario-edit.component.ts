@@ -5,11 +5,11 @@ import { AuthService } from 'src/app/service/auth.service';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
-  selector: 'app-user-edit',
+  selector: 'app-usuario-edit',
   templateUrl: './usuario-edit.component.html',
   styleUrls: ['./usuario-edit.component.css']
 })
-export class UserEditComponent implements OnInit {
+export class UsuarioEditComponent implements OnInit {
 
   usuario: Usuario = new Usuario()
   idUsuario: number
@@ -42,15 +42,15 @@ export class UserEditComponent implements OnInit {
     this.tipoUsuario = event.target.value
   }
 
-  atualizar(){
+  atualizarUsuario(){
     this.usuario.tipo =this.tipoUsuario
 
     if (this.usuario.senha != this.confirmarSenha) {
       alert('A senhas estão incorretas')
     } else {
-      this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
+      this.authService.atualizar(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
-        this.router.navigate(['/entrar'])
+       
         alert('Usuário atualizado com sucesso! Faça o login novamente')
         environment.token =''
         environment.nome =''

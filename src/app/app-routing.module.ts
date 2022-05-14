@@ -5,7 +5,7 @@ import { PostagensDeleteComponent } from './delete/postagens-delete/postagens-de
 import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
 import { PostagensEditComponent } from './edit/postagens-edit/postagens-edit.component';
 import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
-import { UserEditComponent } from './edit/usuario-edit/usuario-edit.component';
+import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { TemaComponent } from './tema/tema.component';
@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'tema-delete/:id', component: TemaDeleteComponent },
   { path: 'postagens-edit/:id', component: PostagensEditComponent},
   { path: 'postagens-delete/:id', component: PostagensDeleteComponent},
-  { path: 'usuario-edit/:id', component: UserEditComponent}
+  { path: 'usuario-edit/:id', component: UsuarioEditComponent}
 ];
 
 @NgModule({
