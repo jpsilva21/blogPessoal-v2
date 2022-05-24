@@ -27,7 +27,7 @@ export class AuthService {
   }
 
   getByIdUsuario(id: number): Observable<Usuario> {
-    return this.http.get<Usuario>(`http://localhost:8080/usuarios/${id}`)
+    return this.http.get<Usuario>(`http://localhost:8080/usuarios/${id}`, this.token)
   }
 
   logado() {

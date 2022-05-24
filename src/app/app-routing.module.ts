@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
+import { PostagensDeleteComponent } from './delete/postagens-delete/postagens-delete.component';
 import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
+import { PostagensEditComponent } from './edit/postagens-edit/postagens-edit.component';
 import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'tema', component: TemaComponent },
                   /* :id-> para passar parametro por rota  */
   { path: 'tema-edit/:id', component: TemaEditComponent },
-  { path: 'tema-delete/:id', component: TemaDeleteComponent }
+  { path: 'tema-delete/:id', component: TemaDeleteComponent },
+  { path: 'postagens-edit/:id', component: PostagensEditComponent},
+  { path: 'postagens-delete/:id', component: PostagensDeleteComponent}
 ];
 
 @NgModule({
