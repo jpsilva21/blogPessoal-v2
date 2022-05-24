@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable, observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { Usuario } from '../model/Usuario';
 import { UsuarioLogin } from '../model/UsuarioLogin';
@@ -26,6 +25,11 @@ export class AuthService {
 
   }
 
+  atualizar(usuario: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>('http://localhost:8080/usuarios/atualizar', usuario, this.token)
+  }
+
+
   getByIdUsuario(id: number): Observable<Usuario> {
     return this.http.get<Usuario>(`http://localhost:8080/usuarios/${id}`, this.token)
   }
@@ -38,7 +42,7 @@ export class AuthService {
     }
     return ok
   }
- 
+
   token = {
     headers: new HttpHeaders().set('Authorization', environment.token)
   }
